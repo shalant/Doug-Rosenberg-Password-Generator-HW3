@@ -27,17 +27,17 @@ var password = buildPassword("this is my string");
 
 }
 
-function getOptions() {
-  var length = Prompt("What length do you want?");
-  var nums = Confirm("Shall we use numbers?");
-  var lower = Confirm("Shall we use lowercase letters?");
-  var upper = Confirm("Shall we use uppercase letters?");
-  var specials = Confirm("Shall we use special characters?");
+function getOptions(options) {
+  var length = prompt("What length do you want?");
+  var nums = confirm("Shall we use numbers?");
+  var lower = confirm("Shall we use lowercase letters?");
+  var upper = confirm("Shall we use uppercase letters?");
+  var specials = confirm("Shall we use special characters?");
 
-  return { length: length, nums: nums, lowers: lowers, uppers: uppers, specials: specials}
+  return {length: length, nums: nums, lower: lower, upper: upper, specials: specials}
 }
 
-function buildPassword() {
+function buildPassword(options) {
   var password = "";
   if(nums) {
    // add a number to the password
@@ -64,7 +64,7 @@ function buildPassword() {
 }
 
 getOptions(password);
-//buildPassword
+buildPassword(nums, lower, upper, specials);
 //generatePassword
 
 // Add event listener to generate button
