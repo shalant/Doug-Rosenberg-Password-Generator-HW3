@@ -12,60 +12,44 @@ function generatePassword() {
   //2. Send those options to the buildPassword function
   //This function takes those options and builds a password including the desired character
   //types and to the specific length desired.
-var password = buildPassword("this is my string");
+var password = buildPassword(options);
+  console.log(password)
   //3. Send the generated password to the generatePassword function
   //This function puts the password into the HTML
-
-
-  //////////////////////////
-  //var password = generatePassword();
-  //var passwordText = document.querySelector("#password");
-
-
-
-  //passwordText.value = password;
-
 }
 
-function getOptions(options) {
-  var length = prompt("What length do you want?");
+function getOptions() {
+  var lengthP = prompt("What length do you want?");
   var nums = confirm("Shall we use numbers?");
   var lower = confirm("Shall we use lowercase letters?");
   var upper = confirm("Shall we use uppercase letters?");
-  var specials = confirm("Shall we use special characters?");
+  //var specials = confirm("Shall we use special characters?");
 
-  return {length: length, nums: nums, lower: lower, upper: upper, specials: specials}
+//  return {length: length, nums: nums, lower: lower, upper: upper, specials: specials}
+return {
+  lengthP: lengthP,
+  nums: nums,
+  lower: lower,
+  upper: upper,
+}
 }
 
-function buildPassword(options) {
-  var password = "";
-  if(nums) {
-   // add a number to the password
-   password.push.nums;
-   console.log(options);
+function buildPassword(lengthP) {
+  var abc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+  //var upYours = abc.toUppercase;
+  for(var i = 0; i < abc.length; i++) {
+    //console.log(abc[i].toUpperCase());
+    return abc.push(abc[i].toUpperCase());
+  }
+  //console.log(upYours);
+  var results = "";
+  for(var i = 0; i < abc.length; i++) {
+    results += abc[Math.floor(Math.random()*abc.length)]
   }
 
-  if(lowers) {
-    password.push.lowers;
+  return results;
 
-  }
-
-  if (uppers) {
-    password.push.uppers;
-
-  }
-
-  if (specials) {
-    password.push.specials;
-  }
-  //... do all the options
-
-  return password
 }
-
-getOptions(password);
-buildPassword(nums, lower, upper, specials);
-//generatePassword
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", generatePassword);
@@ -88,54 +72,5 @@ function myFunction() {
   }
 }
 
-//2) prompt "Use lowercase?"
-  //var lowercase = prompt("Shall we use lowercase?");
-
-  //if (lowercase === true) {
-    //do something (look up that toLowercase function???)
-  //  var lCase="abcdefghijklmnopqrstuvwxyz"
-  //} else {
-  //do something
-  //}
-//   display and store as an array
-
-//3) prompt "Use uppercase?"
-  //var uppercase = prompt("Shall we use uppercase?");
-
-  //if (uppercase === true) {
-    //do something
-  //  var uCase="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  //} else {
-  //do something
-  //}
-
-//   display and store as an array
-
-//4) prompt "Use numbers?"
-
-  //var numbers = prompt("Shall we use numbers?");
-
-  //if (numbers === true) {
-    //do something
-  //} else {
-    //do something
-  //}
-
-//   display and store as an array
-
-//5) prompt "Use special characters (%$!)?"
-//   display and store as an array
-
-//6) now randomly generate password according to the values
-// randomly choose from 4 arrays?
-//   display
-
-
-//one of the arrays has to be the length specified by the user,
-//then do a loop with that value
-//and run the math.Random thingy for that?
-
-//this ostensibly adds random numbers to an array
-//for(let i = 0; i<ARRAY_LENGTH; i++) {randomArray.push(Math.random())}
-
-//how do i prompt the value ARRAY_LENGTH?
+//handle the abc1 to uppercase
+//add the uppercase letters to abc array
